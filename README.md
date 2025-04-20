@@ -1,7 +1,3 @@
-Below is a concise English README for your Cafes‑Viewing‑Website project, summarizing the key points from your report and including the note about user registration and default admin credentials.
-
----
-
 # Cafes‑Viewing‑Website
 
 A web application that lets users discover, save, and propose cafés, while giving admins full control via a dashboard.
@@ -12,33 +8,33 @@ A web application that lets users discover, save, and propose cafés, while givi
 
 - **Registered Users** can search for approved cafés by name or district, save favorites, report errors or suggest edits, and propose new cafés.  
 - **Guests** can browse approved cafés without logging in.  
-- **Administrators** manage pending cafés, user reports, approved cafés, and user accounts through an admin dashboard. citeturn1file1turn1file2
+- **Administrators** manage pending cafés, user reports, approved cafés, and user accounts through an admin dashboard.
 
 ## Features
 
 - **User Registration & Authentication**  
-  Sign up or log in via email/password or social media (Google, Facebook); passwords are securely hashed. citeturn1file2
+  Sign up or log in via email/password or social media (Google, Facebook); passwords are securely hashed. 
 
 - **Cafe Browsing & Search**  
-  Dynamic search by name or district, paginated results, and detailed café modals (images, description, tags). citeturn1file2
+  Dynamic search by name or district, paginated results, and detailed café modals (images, description, tags).
 
 - **Favorites**  
-  Save and manage a personal list of favorite cafés. citeturn1file2
+  Save and manage a personal list of favorite cafés.
 
 - **Error Reporting & Proposals**  
-  Submit error reports or new‑café proposals via modals; admins review and approve or reject. citeturn1file2
+  Submit error reports or new‑café proposals via modals; admins review and approve or reject. 
 
 - **Admin Dashboard**  
   • View/approve/reject pending cafés and reports  
   • Add/edit/delete approved cafés  
   • Manage user accounts (view, suspend, delete)  
-  • Configure system settings (districts, tags) citeturn1file2
+  • Configure system settings (districts, tags) 
 
 ## Technologies
 
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap citeturn1file1  
-- **Backend:** PHP (procedural scripts for authentication, café management, reporting, and favorites) citeturn1file1  
-- **Database:** MySQL (InnoDB tables for users, cafés, districts, tags, favorites, reports) citeturn1file1  
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap   
+- **Backend:** PHP (procedural scripts for authentication, café management, reporting, and favorites)
+- **Database:** MySQL (InnoDB tables for users, cafés, districts, tags, favorites, reports)  
 - **Tools:** VS Code, XAMPP (local PHP/MySQL), Git
 
 ## Installation
@@ -61,7 +57,7 @@ A web application that lets users discover, save, and propose cafés, while givi
 
 Upon first run, an **admin** account is automatically created. Please use the credentials defined in `config.php` (or update them before deployment).  
 - **Username:** `admin`  
-- **Password:** `admin123`
+- **Password:** `Admin1234#`
 
 > **Tip:** Change these immediately in your configuration for production.
 

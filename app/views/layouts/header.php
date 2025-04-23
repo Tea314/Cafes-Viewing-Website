@@ -1,5 +1,5 @@
 <?php
-define('BASE_URL', '/mywebsite/public');
+define('BASE_URL', '/Cafes-Viewing-Website/public');
 ?>
 
 <!DOCTYPE html>

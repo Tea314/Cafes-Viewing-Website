@@ -17,7 +17,7 @@ viewName('header', ['title' => 'Saves']);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/mywebsite/public/assets/cafe-bg.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Cafes-Viewing-Website/public/assets/cafe-bg.jpg');
             background-size: cover;
             background-position: center;
             text-align: center;
@@ -88,7 +88,7 @@ viewName('header', ['title' => 'Saves']);
             <i class="fas fa-coffee coffee-icon"></i>
             <h1>Under Development</h1>
             <p>The "Saves" feature is brewing! Soon, you'll be able to view and manage your favorite cafés here. Stay tuned for updates!</p>
-            <a href="/mywebsite/public/index.php" class="btn-home">Back to Homepage</a>
+            <a href="/Cafes-Viewing-Website/public/index.php" class="btn-home">Back to Homepage</a>
         </div>
     </section>
 </main>

@@ -152,5 +152,5 @@ $mapSrc = "https://www.google.com/maps?q={$encodedAddress}&output=embed";
     </div>
 </div>
 
-<script src="/../mywebsite/public/js/modal.js">
+<script src="/../Cafes-Viewing-Website/public/js/modal.js">
 </script>

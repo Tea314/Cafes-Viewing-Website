@@ -346,4 +346,4 @@ if (empty($cafes)) { ?>
     </div>
 </main>
 
-<script src="/mywebsite/public/js/admin.js"></script>
+<script src="/Cafes-Viewing-Website/public/js/admin.js"></script>

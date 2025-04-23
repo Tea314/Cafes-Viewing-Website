@@ -7,7 +7,7 @@
             color: #EFE9D5;
         }
         .contact-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/mywebsite/public/assets/cafe-bg.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Cafes-Viewing-Website/public/assets/cafe-bg.jpg');
             background-size: cover;
             background-position: center;
             padding: 80px 0;
@@ -118,7 +118,7 @@
                 <div class="col-lg-6 col-md-12 ">
                     <div class="contact-form">
                         <h3>Send a Message</h3>
-                        <form id="contactForm" action="/mywebsite/public/api/submit_contact.php" method="POST">
+                        <form id="contactForm" action="/Cafes-Viewing-Website/public/api/submit_contact.php" method="POST">
                             <div class="mb-3">
                                 <label for="name" class="form-label text-black">Full Name</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>

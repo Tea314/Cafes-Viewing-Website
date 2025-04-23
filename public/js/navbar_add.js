@@ -1,4 +1,4 @@
-document.getElementById('addCafeForm').addEventListener('submit', function(event) {
+document.getElementById('addCafeForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const description = document.getElementById('description').value;
     if (description.length < 10 || description.length > 500) {
@@ -9,14 +9,14 @@ document.getElementById('addCafeForm').addEventListener('submit', function(event
     }
     const formData = new FormData(this);
 
-    fetch('/mywebsite/public/userAdd.php', {
-            method: 'POST',
-            body: formData
-        }).then(response => {
-                        console.log('Response status: ', response.status);
-                        console.log('Content type: ', response.headers.get('content-type'));
-                        return response.text();
-                    }).then(text => {
+    fetch('/Cafes-Viewing-Website/public/userAdd.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => {
+        console.log('Response status: ', response.status);
+        console.log('Content type: ', response.headers.get('content-type'));
+        return response.text();
+    }).then(text => {
         console.log('Raw response:', text);
         try {
             return JSON.parse(text);
@@ -41,7 +41,7 @@ document.getElementById('addCafeForm').addEventListener('submit', function(event
                     confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.reload(); 
+                        window.location.reload();
                     }
                 });
             } else {

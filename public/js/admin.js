@@ -1,8 +1,8 @@
 document.querySelectorAll('.edit-cafe').forEach(button => {
     console.log('test');
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         const cafeId = this.getAttribute('data-id');
-        fetch(`/../mywebsite/app/controllers/CafeController.php?action=fetchById&id=${cafeId}`)
+        fetch(`/../Cafes-Viewing-Website/app/controllers/CafeController.php?action=fetchById&id=${cafeId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -33,7 +33,7 @@ document.querySelectorAll('.edit-cafe').forEach(button => {
     });
 });
 
-document.getElementById('editCafeForm').addEventListener('submit', function(event) {
+document.getElementById('editCafeForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     Swal.fire({
@@ -61,26 +61,26 @@ document.getElementById('editCafeForm').addEventListener('submit', function(even
 
             saveBtn.disabled = true;
             saveBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span> Saving...`;
-            fetch('/../mywebsite/app/controllers/CafeController.php?action=update', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(cafeData)
-                })
+            fetch('/../Cafes-Viewing-Website/app/controllers/CafeController.php?action=update', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cafeData)
+            })
                 .then(response => {
-                        console.log('Response status: ',response.status);
-                        console.log('Content type: ', response.headers.get('content-type'))
-                        return response.text();
-                    }).then(text => {
-        console.log('Raw response:', text); // Log nội dung phản hồi
-        try {
-            return JSON.parse(text); // Thử parse JSON
-        } catch (e) {
-            console.error('JSON parse error:', e, text);
-            throw new Error('Invalid JSON response');
-        }
-    })
+                    console.log('Response status: ', response.status);
+                    console.log('Content type: ', response.headers.get('content-type'))
+                    return response.text();
+                }).then(text => {
+                    console.log('Raw response:', text); // Log nội dung phản hồi
+                    try {
+                        return JSON.parse(text); // Thử parse JSON
+                    } catch (e) {
+                        console.error('JSON parse error:', e, text);
+                        throw new Error('Invalid JSON response');
+                    }
+                })
                 .then(data => {
                     saveBtn.disabled = false;
                     saveBtn.textContent = 'Save Changes';
@@ -120,9 +120,9 @@ document.getElementById('editCafeForm').addEventListener('submit', function(even
                 });
         }
     });
-}); 
+});
 document.querySelectorAll('.delete-cafe').forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         const cafeId = this.getAttribute('data-id');
         const cafeName = this.getAttribute('data-name');
 
@@ -136,7 +136,7 @@ document.querySelectorAll('.delete-cafe').forEach(button => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('/../mywebsite/app/controllers/CafeController.php?action=delete', {
+                fetch('/../Cafes-Viewing-Website/app/controllers/CafeController.php?action=delete', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -145,37 +145,37 @@ document.querySelectorAll('.delete-cafe').forEach(button => {
                         cafe_id: cafeId
                     })
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        Swal.fire(
-                            'Deleted!',
-                            'The café has been deleted.',
-                            'success'
-                        ).then(() => {
-                            window.location.reload();
-                        });
-                    } else {
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire(
+                                'Deleted!',
+                                'The café has been deleted.',
+                                'success'
+                            ).then(() => {
+                                window.location.reload();
+                            });
+                        } else {
+                            Swal.fire(
+                                'Error!',
+                                data.message || 'Could not delete the café.',
+                                'error'
+                            );
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
                         Swal.fire(
                             'Error!',
-                            data.message || 'Could not delete the café.',
+                            'An error occurred while deleting the café.',
                             'error'
                         );
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    Swal.fire(
-                        'Error!',
-                        'An error occurred while deleting the café.',
-                        'error'
-                    );
-                });
+                    });
             }
         });
     });
 });
-document.getElementById('addCafeForm').addEventListener('submit', function(event) {
+document.getElementById('addCafeForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const description = document.getElementById('description').value;
     if (description.length < 10 || description.length > 500) {
@@ -186,14 +186,14 @@ document.getElementById('addCafeForm').addEventListener('submit', function(event
     }
     const formData = new FormData(this);
 
-    fetch('/mywebsite/public/admin.php', {
-            method: 'POST',
-            body: formData
-        }).then(response => {
-                        console.log('Response status: ',response.status);
-                        console.log('Content type: ', response.headers.get('content-type'))
-                        return response.text();
-                    }).then(text => {
+    fetch('/Cafes-Viewing-Website/public/admin.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => {
+        console.log('Response status: ', response.status);
+        console.log('Content type: ', response.headers.get('content-type'))
+        return response.text();
+    }).then(text => {
         console.log('Raw response:', text); // Log nội dung phản hồi
         try {
             return JSON.parse(text); // Thử parse JSON
@@ -218,7 +218,7 @@ document.getElementById('addCafeForm').addEventListener('submit', function(event
                     confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.reload(); 
+                        window.location.reload();
                     }
                 });
             } else {
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append('action', action);
 
             try {
-                const response = await fetch('/../mywebsite/app/controllers/ReportController.php', {
+                const response = await fetch('/../Cafes-Viewing-Website/app/controllers/ReportController.php', {
                     method: 'POST',
                     body: formData,
                 });
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 document.querySelectorAll('.approve-cafe').forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         const cafeId = this.getAttribute('data-id');
 
         Swal.fire({
@@ -313,42 +313,42 @@ document.querySelectorAll('.approve-cafe').forEach(button => {
             cancelButtonText: 'No, cancel'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('/mywebsite/public/approve_cafe.php', {
+                fetch('/Cafes-Viewing-Website/public/approve_cafe.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ cafe_id: cafeId })
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        Swal.fire({
-                            title: 'Approved!',
-                            text: 'Café has been approved.',
-                            icon: 'success',
-                            confirmButtonText: 'OK'
-                        }).then(() => {
-                            window.location.reload();
-                        });
-                    } else {
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire({
+                                title: 'Approved!',
+                                text: 'Café has been approved.',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then(() => {
+                                window.location.reload();
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: data.message || 'Failed to approve café.',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
                         Swal.fire({
                             title: 'Error!',
-                            text: data.message || 'Failed to approve café.',
+                            text: 'An error occurred. Please try again.',
                             icon: 'error',
                             confirmButtonText: 'OK'
                         });
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'An error occurred. Please try again.',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
                     });
-                });
             }
         });
     });

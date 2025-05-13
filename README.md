@@ -1,4 +1,4 @@
-# Cafes‑Viewing‑Website
+
 
 A web application that lets users discover, save, and propose cafés, while giving admins full control via a dashboard.
 
